@@ -1,0 +1,19 @@
+<div class="products">
+  <div *ngFor="let product of products">
+    <div class="products__single" id="{{product.id}}">
+      <img [src]="product.thumbnail" [alt]="product.title" />
+      <span>{{product.title}}</span>
+    </div>
+  </div>
+
+</div>
+<div *ngIf="productsData.length > 0" class="pagination">
+  <span (click)="handlePagination(page-1)">◀</span>
+  <div class="item-count" *ngFor="let i of paginationCount">
+    <span [ngStyle]="{ 'background-color': page == i ? 'green' : 'white' }" (click)="handlePagination(i)">
+      {{ i }}
+    </span>
+     <!-- <span [ngStyle]="{'background-color': page==i ? 'green' : white}" (click)="handlePagination(i)">{{i}}</span> -->
+  </div>
+  <span (click)="handlePagination(page+1)">▶</span>
+</div>
