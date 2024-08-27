@@ -1,0 +1,48 @@
+<nav>
+    <a routerLink="/timer">Timer</a>
+  </nav>
+<div class="timer-container">
+    <h3>Count Down Timer</h3>
+    <div class="container-lables">
+      <p class="container-lables-label">Hours</p>
+      <p class="container-lables-label">Minutes</p>
+      <p class="container-lables-label">Seconds</p>
+    </div>
+    <div class="container-input">
+      <input
+      type="number"
+      maxlength="2"
+      class="container-input-time hour"
+      placeholder="00"
+      [(ngModel)]="hours"
+      (input) = "adjustHours()"
+       />
+       <p class="colon">:</p>
+       <input
+      type="number"
+      maxlength="2"
+      class="container-input-time minute"
+      placeholder="00"
+      [(ngModel)]="minutes"
+      (input) = "adjustMinutes()"
+       />
+       <p class="colon">:</p>
+       <input
+      type="number"
+      maxlength="2"
+      class="container-input-time second"
+      placeholder="00"
+      [(ngModel)]="seconds"
+      (input) = "adjustSeconds()"
+       />
+  
+    </div>
+  
+    <div class="controls">
+      <button class="start" (click)="startTimer()" *ngIf="startEnabled">Start</button>
+      <button class="pause" (click)="pauseTimer()" *ngIf="pauseEnabled">Pause</button>
+      <button class="continue" (click)="continueTimer()" *ngIf="continueEnabled">Continue</button>
+      <button class="reset" (click)="resetTimer()">Reset</button>
+    </div>
+  
+  </div>
