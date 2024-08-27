@@ -1,0 +1,43 @@
+.file-explorer {
+  font-family: Arial, sans-serif;
+
+  ul {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+}
+
+.nested-files {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+}
+
+.file {
+  // padding-left: 15px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.folder-name {
+  cursor: pointer;
+}
+
+.folder-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #e1e1e1a6;
+  width: max-content;
+  padding: 2px;
+  // position: relative;
+  .btn-folder {
+    padding-left: 35px;
+    display: flex;
+    gap: 10px;
+  }
+}
+.input-container {
+  position: relative;
+  z-index: 1;
+}

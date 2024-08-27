@@ -1,0 +1,28 @@
+<div style="margin-top : 5px;">
+    <div class="folder-container" (click)="setExpand()">
+        <span class="folder-name">📁 {{explorer.name}}</span>
+        <div class="btn-folder">
+            <button class="add-folder" (click)="handleNewFolder($event,'folder')">+folder</button>
+            <button class="add-file" (click)="handleNewFolder($event,'file')">+file</button>
+        </div> 
+    </div>
+    <div class="nested-files" [ngStyle]="{'display': expand ? 'block' :'none'}">
+        <div *ngIf="showInput.visible" (clickOutside)="removeInputBox($event)">
+            <div class="input-container">
+
+                <input type="text" 
+                placeholder="Enter {{showInput.isFolder? 'folder': 'file'}} name"
+                (keydown)="onAddFolder($event)"
+                />
+            </div>
+        </div>
+        <div *ngFor="let items of explorer.items">
+            <div *ngIf="items.isFolder" class="folder">
+                <app-file-explorer [explorer]="items"></app-file-explorer>
+            </div>
+            <div class="file" *ngIf="!items.isFolder" class="file">
+                <span id="items.id">📑 {{items.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>
